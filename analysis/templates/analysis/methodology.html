@@ -1,0 +1,49 @@
+{% extends 'analysis/base.html' %}
+
+{% block title %}Data Analysis - Methodology{% endblock %}
+
+{% block pagecontent %}
+    <div id="wrapper" class="toggled">
+        {% include 'analysis/partials/sidebar.html' %}
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Methodology</h1>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#data-analysis" role="tab" data-toggle="tab">Data Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#linear-regression" role="tab" data-toggle="tab">Linear Regression</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#support-vector-regression" role="tab" data-toggle="tab">Support
+                            Vector Regression</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade  active show" id="data-analysis">The first step is to check data to find out if the time series is complete or there are missing data, and to identify the abnormal data (i.e. out of range temperature or negative energy consumption). <br>
+Since the time series need to be complete, the missing data are add to the list using the average of last 2 hours. <br>
+A set of daily data created using the average of temperatures and energy consumption for each day in order to have suitable data set for regression. <br>
+</div>
+                    <div role="tabpanel" class="tab-pane fade" id="linear-regression">Typical method of defining a base line for energy consumption in building is linear regression. <br>
+Considering this case as Multivariate Time Series, linear regression can be defined by energy consumption as the function of " Heating Degree Day (HDD) = T_setpoint – T_outside"  and "Delta Temperature (DT)= T_setpoint-T_inside"
+</div>
+
+                    <div role="tabpanel" class="tab-pane fade" id="support-vector-regression">
+                        SVM is a supervised machine learning algorithm which can be used for classification (SVC) or regression (SVR) problems. It uses a technique called the "kernel trick" to transform the data and then based on these transformations it finds an optimal boundary between the possible outputs. <br>
+In machine learning, kernel methods are a class of algorithms for pattern analysis, whose best known member is the support vector machine (SVM). <br>
+                        The method of Support Vector Classification can be extended to solve regression problems by different methods: <br> 1- Radial basis function kernel (RBF)<br> 2- Linear SVR<br> 3- Polynomial SVR
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
